@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>作品一覧</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background-color: #f0f0f0;
+    }
+    .artwork {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+    }
+    p {
+      line-height: 1.6;
+      margin: 0.3rem 0;
+    }
+    .feedback-link {
+      margin-top: 1rem;
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      background-color: #0078d4;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .feedback-link:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">テーマ作品コメント</h1>
+  <div id="gallery"></div>
+
+  <script>
+    // 作品データの配列（必要なだけ追加できます）
+    const artworks = [
+      {
+        title: "優しい願い",
+        camera: "Nikon Z8, NIKKOR Z 40mm f/2",
+        comment: "母親の手に包まれて寝るアヒルのヒナです。\n アヒルちゃんは元気かな"
+      },
+      {
+        title: "春の芽吹き",
+        camera: "LUMIX G99M2",
+        comment: "春っぽいな～と思って撮りました。"
+      },
+      {
+        title: "紫陽花",
+        camera:"",
+        comment:"",
+      },
+      {
+        title:"レンズの向こう側",
+        camera:"",
+        comment:"",
+      },
+      {
+        title: "黄昏と日本海",
+        camera: "SONY α7R",
+        comment: "浜辺で黄昏れる2人と冬の荒れた日本海、この対照的な情景に曇天がよくマッチして撮れたと思います。"
+      },
+      {
+        title: "司見",
+        camera: "",
+        comment: ""
+      },
+      {
+        title: "憂愁ノ響",
+        camera: "Canon EOS Kiss X10i",
+        comment: "最終的に「響」にしたけれど、最後まで「叫」と迷っていました。"
+      },
+      {
+        title: "ピクニック",
+        camera: "",
+        comment: ""
+      },
+      {
+        title: "続く美来",
+        camera: "Nikonz50II",
+        comment: "手の配置と構造が難しかったです"
+      }
+    ];
+
+    // 共通の感想フォームURL
+    const feedbackURL = "https://example.com/feedback-form"; // ←ここを実際のURLに差し替えてください
+
+    const gallery = document.getElementById("gallery");
+
+    artworks.forEach((art) => {
+      const artDiv = document.createElement("div");
+      artDiv.className = "artwork";
+
+      artDiv.innerHTML = `
+        <h2>${art.title}</h2>
+        <p><strong>使用したカメラ:</strong> ${art.camera}</p>
+        <p><strong>コメント:</strong> ${art.comment}</p>
+        <a class="feedback-link" href="${feedbackURL}" target="_blank">感想はこちらから！(会場内共通)</a>
+      `;
+
+      gallery.appendChild(artDiv);
+    });
+  </script>
+</body>
+</html>
